@@ -16,7 +16,7 @@ after_success:
     
 #Login to the docker CLI
 - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
-#Take those images and push them to the docker hub
+#Take those images and push them to the docker hub wait to move it to AWS
 - docker push yogeshkarve/multi-client
 - docker push yogeshkarve/multi-nginx
 - docker push yogeshkarve/multi-server
