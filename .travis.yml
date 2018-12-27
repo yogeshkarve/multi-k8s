@@ -1,4 +1,5 @@
 sudo: required
+
 services:
     - docker
 
@@ -14,9 +15,8 @@ after_success:
     - docker build -t yogeshkarve/multi-server ./server
     - docker build -t yogeshkarve/multi-worker ./worker
     
-#Login to the docker CLI
-- echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
-#Take those images and push them to the docker hub wait to move it to AWS
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
 - docker push yogeshkarve/multi-client
 - docker push yogeshkarve/multi-nginx
 - docker push yogeshkarve/multi-server
