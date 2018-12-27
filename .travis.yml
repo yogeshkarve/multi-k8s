@@ -14,10 +14,10 @@ after_success:
     - docker build -t yogeshkarve/multi-nginx ./nginx
     - docker build -t yogeshkarve/multi-server ./server
     - docker build -t yogeshkarve/multi-worker ./worker
-    
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-
-- docker push yogeshkarve/multi-client
-- docker push yogeshkarve/multi-nginx
-- docker push yogeshkarve/multi-server
-- docker push yogeshkarve/multi-worker
+    #Log into docker cli
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    #Take those images and push them to docker hub
+    - docker push yogeshkarve/multi-client
+    - docker push yogeshkarve/multi-nginx
+    - docker push yogeshkarve/multi-server
+    - docker push yogeshkarve/multi-worker
