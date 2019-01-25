@@ -1,9 +1,9 @@
 #docker build -t "yogeshkarve/multi-client:latest" -t "yogeshkarve/multi-client:$SHA" -f ./client/Dockerfile . /client
 #docker build -t "yogeshkarve/multi-server:latest" -t "yogeshkarve/multi-server:$SHA" -f ./server/Dockerfile . /server
 #docker build -t "yogeshkarve/multi-worker:latest" -t "yogeshkarve/multi-worker:$SHA" -f ./worker/Dockerfile . /worker
-docker build --tag yogeshkarve/multi-client:latest yogeshkarve/multi-client:$SHA -f ./client/Dockerfile . /client
-docker build --tag yogeshkarve/multi-server:latest yogeshkarve/multi-server:$SHA -f ./server/Dockerfile . /server
-docker build --tag yogeshkarve/multi-worker:latest yogeshkarve/multi-worker:$SHA -f ./worker/Dockerfile . /worker
+docker build --build-arg -t yogeshkarve/multi-client:latest -t yogeshkarve/multi-client:$SHA -f ./client/Dockerfile . /client
+docker build --build-arg -t yogeshkarve/multi-server:latest -t yogeshkarve/multi-server:$SHA -f ./server/Dockerfile . /server
+docker build --build-arg -t yogeshkarve/multi-worker:latest -t yogeshkarve/multi-worker:$SHA -f ./worker/Dockerfile . /worker
 docker push yogeshkarve/multi-client:latest
 docker push yogeshkarve/multi-server:latest
 docker push yogeshkarve/multi-worker:latest
